@@ -13,10 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('guest.home');
-})->name('guest.home');
 
 Auth::routes();
 
-Route::get('/admin', 'HomeController@index')->name('admin.home');
+// Protect routes with widdleware auth
+Route::middleware('auth')->prefix('admin')->name('admin.')->namespace('Admin')->group(function () {
+    Route::get('/admin', 'Admin\HomeController@index')->name('home');
+    Route::resource('post', 'Admin\PostController');
+});
+
+Route::get('/{any?}', function () {
+    return view('guest.home');
+})->where("any", ".*");
