@@ -10,10 +10,11 @@
         <table class="table">
             <thead class="thead-dark">
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">ID</th>
+                <th scope="col">TITLE</th>
+                <th scope="col">CONTENT</th>
+                <th scope="col">DATE</th>
+                <th scope="col">FEATURE</th>
               </tr>
             </thead>
             <tbody>
