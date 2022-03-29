@@ -76,7 +76,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-5 d-flex justify-content-center">
             @yield('content')
         </main>
     </div>
