@@ -18,8 +18,8 @@ Auth::routes();
 
 // Protect routes with widdleware auth
 Route::middleware('auth')->prefix('admin')->name('admin.')->namespace('Admin')->group(function () {
-    Route::get('/admin', 'Admin\HomeController@index')->name('home');
-    Route::resource('post', 'Admin\PostController');
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::resource('posts', 'PostController');
 });
 
 Route::get('/{any?}', function () {
