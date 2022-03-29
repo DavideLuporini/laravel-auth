@@ -11,8 +11,10 @@
      <p>{{$post->content}}</p>
      <time>{{$post->created_at}}</time>
      <div class="d-flex align-items-center justify-content-end">
-    <a href="{{route('admin.posts.index')}}" class="btn btn-sm btn-warning mr-5"> BACK</a>
-     </div>
     </div>
+</div>
+</div>
+<div class="d-flex justify-content-end align-items-end my-5">
+    <a href="{{route('admin.posts.index')}}" class="btn btn-sm btn-warning mr-5"> BACK</a>
 </div>
 @endsection

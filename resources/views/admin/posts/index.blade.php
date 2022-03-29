@@ -28,7 +28,6 @@
                     <a href="{{route('admin.posts.show', $post->id)}}" class="btn btn-sm btn-success"><i class="fa-solid fa-eye"></i></a>
                 </td>
               </tr>
-                  
                   @empty
                   <h1>no post</h1>
                   @endforelse
