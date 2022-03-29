@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        {{-- css --}}
         <link href="{{asset('css.app.css')}}" rel="stylesheet">
 
         <!-- Styles -->
@@ -63,7 +64,9 @@
                 margin-bottom: 30px;
             }
         </style>
-        <script src="{{asset('js/font.js')}}" defer></script>
+
+        {{-- script vue --}}
+        <script src="{{asset('js/front.js')}}" defer></script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -83,8 +86,9 @@
 
             <div class="content">
                 
-                <div id="root"></div>
+                <div id="root">
+                </div>
             </div>
+        </body>
         </div>
-    </body>
 </html>
