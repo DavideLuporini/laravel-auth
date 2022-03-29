@@ -2,10 +2,11 @@
 
 @section('content')
     <div class="container">
-        <header>
+        <header class="d-flex justify-content-between">
             <h1>
                 My Posts
             </h1>
+            <a href="{{route('admin.posts.create')}}" class="btn btn-sm btn-success"> add post</a>
         </header>
         <table class="table">
             <thead class="thead-dark">
