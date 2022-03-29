@@ -47,9 +47,9 @@ class PostController extends Controller
      * @param  \App\s  $s
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Post $post)
     {
-        //
+        return view('admin.posts.show', compact('post'));
     }
 
     /**
