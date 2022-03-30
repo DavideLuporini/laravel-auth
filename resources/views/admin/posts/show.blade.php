@@ -25,11 +25,22 @@
         <i class="fa-solid fa-pen-to-square"></i> EDIT
      </a>
      {{-- delete --}}
-    <form action="{{route('admin.posts.destroy' , $post->id)}}" method='POST'>
+    <form class="delete-form" action="{{route('admin.posts.destroy' , $post->id)}}" method='POST'>
         @csrf
         @method('DELETE')
         <button  class="btn btn-sm btn-danger" type="submit"><i class="fa-solid fa-trash mx-2"></i>DELETE</button>
      </form>
 </div>
 </div>
+<script>
+    const deleteForms = document.querySelectorAll('.delete-form');
+        deleteForms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const confirmation = confirm(
+                    'Are you sure you want to delete this?');
+                if (confirmation) e.target.submit();
+            })
+        });
+</script>
 @endsection

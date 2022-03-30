@@ -2,12 +2,18 @@
 
 @section('content')
     <div class="container">
+        @if(session('message'))
+    <div class="alert alert-{{ session('type') ?? 'info' }}">
+        {{ session('message') }}
+    </div>
+    @endif
         <header class="d-flex justify-content-center align-content-center my-3 ">
             <h1>
                 My Posts
             </h1>
         </header>
         <hr>
+        
 
         {{-- create new post --}}
         <div class="card">
@@ -41,6 +47,12 @@
                     <a class="btn btn-secondary btn-sm mx-3" href="{{ route('admin.posts.edit', $post->id) }}">
                         <i class="fa-solid fa-pen-to-square"></i>
                      </a>
+
+                     <form class="delete-form" action="{{route('admin.posts.destroy' , $post->id)}}" method='POST'>
+                        @csrf
+                        @method('DELETE')
+                        <button  class="btn btn-sm btn-danger" type="submit"><i class="fa-solid fa-trash mx-2"></i></button>
+                     </form>
                 </td>
               </tr>
                   @empty
@@ -51,4 +63,15 @@
           </table>
           
     </div>
+    <script>
+        const deleteForms = document.querySelectorAll('.delete-form');
+    deleteForms.forEach(form => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+    
+            const confirmation = confirm('Sei sicuro di voler eliminare il post?');
+            if (confirmation) e.target.submit();
+        });
+    });
+    </script>
 @endsection
